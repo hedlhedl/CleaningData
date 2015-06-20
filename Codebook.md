@@ -1,6 +1,7 @@
 ## Data structure 
 1. Each row is the measurement data (mean and std) for each measured activity
-2. First column "Activity" indicates the kind of activity being measured
+2. First column "Subject" indicates the individual tag performing the activity
+3. Second column "Activity" indicates the kind of activity being measured
 
 ##Run_analysis.R processes the data in the following order:
 1. read all data from downloaded files
