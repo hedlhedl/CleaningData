@@ -1,5 +1,8 @@
-Run_analysis.R processes the data in the following order:
+## Data structure 
+1. Each row is the measurement data (mean and std) for each measured activity
+2. First column "Activity" indicates the kind of activity being measured
 
+##Run_analysis.R processes the data in the following order:
 1. read all data from downloaded files
 2. merge train and test data using rbind
 3. read feature.txt for all the data column names
