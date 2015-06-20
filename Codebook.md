@@ -11,4 +11,7 @@
 6. map numeric activity indicators to descriptive activity indicators by merging with activity.labels.txt
 7. Restore the sequence order of the original activity list by using order function, because merging function does not preserve the original order of the data frame.
 8. combine activity list with the main data set using cbind, the column name for activity is defined as "Activity"
-9. done
+9. combine subject list with the main data using cbind, the column name for subject is defined as "Subject"
+10. Generate mean data for all variables for each activity, each subject, using aggregate function
+11. output the clean dataset using write.table and export to cleandata.txt
+12. done
