@@ -4,8 +4,10 @@ library(dplyr)
 colname<-read.table("features.txt")
 traindata<-read.table("./train/X_train.txt")
 trainact<-read.table("./train/y_train.txt")
+trainsub<-read.table("./train/subject_train.txt")
 testdata<-read.table("./test/X_test.txt")
 testact<-read.table("./test/y_test.txt")
+testsub<-read.table("./test/subject_test.txt")
 activitydata<-read.table("activity_labels.txt")
 
 #Step 1: merge training and test data
@@ -31,5 +33,15 @@ Activity<-row_act[,3]
 #Step 3b: add descriptive row name as activity
 Activitydata<-cbind(Activity,extractdata)
 
-#finish, print out the beginning of the data set
-head(Activitydata)
+#Step 5:bind with subject data
+subdata<-rbind(trainsub,testsub)
+totaldata<-cbind(subdata,Activitydata)
+colnames(totaldata)[1]<-"Subject"
+
+#Step 6:generate mean data for all variables for each activity, each subject
+dataset<-aggregate(totaldata[,3:35],by=list(totaldata$Subject,totaldata$Activity),FUN=mean)
+colnames(dataset)[1]<-"Subject"
+colnames(dataset)[2]<-"Activity"
+
+#finish, export the clean data to txt file
+write.table(dataset,file="cleandata.txt",row.names = FALSE)
