@@ -7,5 +7,5 @@ Run_analysis.R processes the data in the following order:
 5. get the list of activities for each measurement
 6. map numeric activity indicators to descriptive activity indicators by merging with activity.labels.txt
 7. Restore the sequence order of the original activity list by using order function, because merging function does not preserve the original order of the data frame.
-8. combine activity list with the main data set using cbind
+8. combine activity list with the main data set using cbind, the column name for activity is defined as "Activity"
 9. done
